@@ -9,7 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/proxy", async (req, res) => {
-  const googleAppsScriptUrl = process.env.APPSCRIPT_URL;
+  const googleAppsScriptUrl =
+    "https://script.google.com/macros/s/AKfycbzzq4AlfUonWPyG3cR_I5RaazicD4bVB_uxPHx83t-lX0Z4vdK8d4jJt1QSu4qiaQ/exec";
+  //   const googleAppsScriptUrl = process.env.APPSCRIPT_URL;
   console.log("Received request body:", req.body); // Log incoming request
 
   try {
