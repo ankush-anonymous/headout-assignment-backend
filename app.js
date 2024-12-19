@@ -11,7 +11,7 @@ app.use(express.json());
 // Proxy route for feedback
 app.post("/proxy/feedback", async (req, res) => {
   const googleAppsScriptUrl =
-    "https://script.google.com/macros/library/d/1Yi_24ITUi3DTLIL22r7a0cFX5aK8xKIiuFHkiooySFVWAXg-VDQfEdfY/1"; // Replace with your deployed URL
+    "https://script.google.com/macros/s/AKfycbzzq4AlfUonWPyG3cR_I5RaazicD4bVB_uxPHx83t-lX0Z4vdK8d4jJt1QSu4qiaQ/exec"; // Replace with your deployed URL
 
   console.log("Received request body (proxy/feedback):", req.body);
 
