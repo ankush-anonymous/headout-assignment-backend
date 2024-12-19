@@ -58,10 +58,54 @@ This proxy server acts as an intermediary between the Headout frontend feedback 
 
 ## API Endpoints
 
-- `POST /proxy`: Accepts form data and forwards it to Google Sheets
-- `GET /`: Health check endpoint that confirms server status
+### POST `/proxy/feedback`
+
+Handles feedback form submissions and forwards them to the Feedback Sheet.
+
+**Purpose:**
+
+- Processes structured feedback data from the frontend feedback form
+- Forwards submissions to a dedicated Feedback Sheet in Google Sheets
+- Validates input data before transmission
+
+**Request Format:**
+
+```json
+{
+  "name": "string",
+  "email": "string",
+  "feedback": "string",
+  "rating": "number"
+}
+```
+
+### POST `/proxy/rawdata`
+
+Handles raw data submissions and manages multi-sheet operations.
+
+**Purpose:**
+
+- Accepts raw data input from various sources
+- Primary insertion into the Raw Data Sheet
+- Triggers automatic data copying to the Dashboard Sheet
+- Enables further data manipulation and analysis in the Dashboard
+
+**Request Format:**
+
+```json
+{
+  "timestamp": "string",
+  "data": "object",
+  "source": "string"
+}
+```
+
+**Note:** Both endpoints implement error handling and validation to ensure data integrity before transmission to Google Sheets.
 
 ## Environment Variables
 
 - `PORT`: Server port (default: 3000)
 - `APPSCRIPT_URL`: Google Apps Script deployment URL (optional)
+- `RENDER_BACKEND_URL`: "https://headout-assignment-backend.onrender.com"
+- `FEEDBACK_SHEET_URL`: "https://docs.google.com/spreadsheets/d/19EFGH-0wkPykiPWRvn9hNUDvTGuYf9iEBFyeoBn3xiQ/edit?usp=sharing"
+- `RAWDATA_SHEET_URL`: "https://docs.google.com/spreadsheets/d/18KciqH7pLy0zYaQwgs1QBnpFYZyidlDhR6sE5nNQq6U/edit?usp=sharing"
