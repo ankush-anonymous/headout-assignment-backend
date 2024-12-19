@@ -33,7 +33,7 @@ app.post("/proxy/feedback", async (req, res) => {
 // Proxy route for rawdata
 app.post("/proxy/rawdata", async (req, res) => {
   const googleAppsScriptUrl2 =
-    "https://script.google.com/macros/s/AKfycbxCloMgsOBrd9dxReqd7-Lavd_Dpowq793Ch0aKWttkFlbvUBQU_QYunvjszVFW5jLG/exec"; // Replace with your deployed URL
+    "https://script.google.com/macros/s/AKfycbyPva5LqwguSjiHDXs6NqZ2j1_grtaiGG25qeaMS5FdMXTjdCUcUkWR-1AVzqbnHtNJ/exec"; // Replace with your deployed URL
 
   console.log("Received request body (proxy/rawdata):", req.body);
 
