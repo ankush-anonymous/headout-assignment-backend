@@ -55,7 +55,7 @@ app.post("/proxy/rawdata", async (req, res) => {
 app.get("/proxy/feedback/getdata", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://script.google.com/macros/s/AKfycbw4le40ElkGiGERPID3wkt5h0BQT43u4QSDbUaihT_RGfmdpCk1s7WasCfjBe9n9b0n/exec"
+      "https://script.google.com/macros/s/AKfycbyS2__OWKoKSOLrVPOlnAwZI0XEY2zGiBR4QqUTQ-js4_wP43CGRqcf8-cqZkv0hOIj/exec"
     );
     res.json(response.data);
   } catch (error) {
