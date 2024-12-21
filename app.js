@@ -54,9 +54,14 @@ app.post("/proxy/rawdata", async (req, res) => {
 
 app.get("/proxy/feedback/getdata", async (req, res) => {
   try {
+    const { email } = req.query;
+    const url =
+      "https://script.google.com/macros/s/AKfycbysqtlG-zOirqf9tjNPZaSY93bDzulIPYRbrkK-Zj6F84CkfAQdIlGHGiGZceYgh46D/exec";
+
     const response = await axios.get(
-      "https://script.google.com/macros/s/AKfycbyS2__OWKoKSOLrVPOlnAwZI0XEY2zGiBR4QqUTQ-js4_wP43CGRqcf8-cqZkv0hOIj/exec"
+      `${url}?email=${encodeURIComponent(email)}`
     );
+
     res.json(response.data);
   } catch (error) {
     console.error("Error fetching data:", error);
