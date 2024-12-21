@@ -52,8 +52,16 @@ app.post("/proxy/rawdata", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Proxy server is running!");
+app.get("/proxy/feedback/getdata", async (req, res) => {
+  try {
+    const response = await axios.get(
+      "https://script.google.com/macros/s/AKfycbzzq4AlfUonWPyG3cR_I5RaazicD4bVB_uxPHx83t-lX0Z4vdK8d4jJt1QSu4qiaQ/exec"
+    );
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("Error fetching data");
+  }
 });
 
 app.listen(PORT, () => {
